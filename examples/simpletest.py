@@ -66,7 +66,7 @@ print('Gyroscope ID:       0x{0:02X}\n'.format(gyro))
 print('Reading BNO055 data, press Ctrl-C to quit...')
 
 data = []
-filename = './imuData/imu_'+ datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+filename = './imuData/imu_'+ datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 
 try:
     while True:
