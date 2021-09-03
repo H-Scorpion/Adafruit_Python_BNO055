@@ -83,11 +83,11 @@ try:
         # Sensor temperature in degrees Celsius:
         #temp_c = bno.read_temp()
         # Magnetometer data (in micro-Teslas):
-        #x,y,z = bno.read_magnetometer()
+        m_x,m_y,m_z = bno.read_magnetometer()
         # Gyroscope data (in degrees per second):
-        #x,y,z = bno.read_gyroscope()
+        w_x,w_y,w_z = bno.read_gyroscope()
         # Accelerometer data (in meters per second squared):
-        #x,y,z = bno.read_accelerometer()
+        a_x,a_y,a_z = bno.read_accelerometer()
         # Linear acceleration data (i.e. acceleration from movement, not gravity--
         # returned in meters per second squared):
         #x,y,z = bno.read_linear_acceleration()
@@ -95,7 +95,7 @@ try:
         # in meters per second squared):
         #x,y,z = bno.read_gravity()
         # Sleep for a second until the next reading.
-        data.append([bno.read_gyroscope(),bno.read_accelerometer(),bno.read_magnetometer()])
+        data.append([w_x,w_y,w_z,a_x,a_y,a_z,m_x,m_y,m_z])
         print(data)
         time.sleep(0.01)
 except KeyboardInterrupt:    
