@@ -96,9 +96,9 @@ try:
         #x,y,z = bno.read_gravity()
         # Sleep for a second until the next reading.
         data.append([w_x,w_y,w_z,a_x,a_y,a_z,m_x,m_y,m_z])
-        print(data)
+        #print(data)
         time.sleep(0.01)
 except KeyboardInterrupt:    
     with open(filename,'w') as f:
         f.write(str(data))
-    print('Program terminated')
+    print('Program terminated...')
