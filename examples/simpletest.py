@@ -66,7 +66,7 @@ print('Gyroscope ID:       0x{0:02X}\n'.format(gyro))
 print('Reading BNO055 data, press Ctrl-C to quit...')
 
 data = []
-filename = 'imu_'+ datetime.strftime(now,'%Y-%m-%d %H:%M:%S')
+filename = './imuData/imu_'+ datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 try:
     while True:
@@ -95,10 +95,10 @@ try:
         # in meters per second squared):
         #x,y,z = bno.read_gravity()
         # Sleep for a second until the next reading.
-        data.append([bno.read_gyroscope(),bno.read_accelerometer()],bno.read_magnetometer())
+        data.append([bno.read_gyroscope(),bno.read_accelerometer(),bno.read_magnetometer()])
         print(data)
         time.sleep(0.01)
 except KeyboardInterrupt:    
     with open(filename,'w') as f:
-        f.write(data)
+        f.write(str(data))
     print('Program terminated')
